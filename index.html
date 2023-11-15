@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>德曼云管控</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      min-height: 100%;
+      background: linear-gradient(to bottom, #ebf1ff, #f2f4ff, #f7faff);
+    }
+    header {
+      width: 100%;
+      height: 12vh;
+      background-color: #343432;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5vw;
+      color: #999;
+      padding: 0 2vw;
+      white-space: pre-line;
+      word-wrap: break-word;
+    }
+    @media screen and (min-width: 550px) {
+      .download {
+        margin-bottom: 3vh;
+      }
+    }
+    @media screen and (min-width: 650px) {
+      header {
+        font-size: 3vw;
+      }
+    }
+    @media screen and (min-width: 1100px) {
+      .content {
+        margin-top: 20vh;
+      }
+    }
+    .logo {
+      width: 60vw;
+      height: 40vw;
+      margin: 10vh auto 10vh;
+    }
+    .logo img {
+      width: 100%;
+      height: 100%;
+    }
+    .logo .text {
+      width: 100%;
+      text-align: center;
+      font-size: 4.6vw;
+    }
+    .content {
+      width: 100%;
+      text-align: center;
+    }
+    .content img {
+      width: 40vw;
+      height: 40vw;
+    }
+    .content .text {
+      color: #999;
+    }
+    .download {
+      margin-top: 8vh;
+      display: flex;
+      justify-content: center;
+    }
+    .download a {
+      text-decoration: none;
+      display: block;
+      width: 40vw;
+      height: 10vw;
+      line-height: 10vw;
+      text-align: center;
+      background-color: #168ff8;
+      border-radius: 2vw;
+      color: #fff;
+      font-size: 3vw;
+    }
+    #tooltip {
+      height: 100px;
+      text-align: center;
+      display: none;
+      align-items: center;
+    }
+    #tooltip .title {
+      flex: 1;
+    }
+    .title h2 {
+      margin-bottom: 1.5vh;
+      color: #5791f9;
+    }
+    #tooltip img {
+      position: absolute;
+      right: 2vw;
+      width: 18vw;
+      top: 1vh;
+      object-fit: cover;
+    }
+    i {
+      display: inline-block;
+      padding: 0px 10px;
+      background-color: #eee;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="tooltip">
+    <div class="title">
+      <h2>从浏览器中打开</h2>
+      <p>点击右上角<i>···</i>，选择在<em style="color: #5791f9; font-style: normal;">浏览器</em>中打开</p>
+    </div>
+    <img src="a.png" alt="">
+  </div>
+  <div class="show">
+    <header>
+      <span>点击右上角按钮，然后在弹出的菜单中，点击在浏览器中打开，即可安装</span>
+    </header>
+    <section>
+      <div class="logo">
+        <img src="logo.png" alt="">
+        <p class="text">欢迎使用德曼云管控App</p>
+      </div>
+    </section>
+    <div class="content">
+      <img src="qrcode.png" alt="">
+    </div>
+    <div class="download">
+      <a href="https://ygk.deman.cn:13080/deman-ygk.apk">立即下载</a>
+    </div>
+  </div>
+  <script>
+    const a = document.querySelector('a')
+    const tooltip = document.querySelector("#tooltip")
+    const show = document.querySelector('.show')
+    a.addEventListener('click', e => {
+      e.preventDefault()
+      // 获取 User Agent
+      var userAgent = navigator.userAgent.toLowerCase();
+      
+      // 判断是否在微信中打开
+      if (userAgent.indexOf('micromessenger') !== -1) {
+          console.log('当前页面在微信中打开');
+          tooltip.style.display = 'flex'
+          show.style.display = 'none'
+      } else {
+          console.log('当前页面不在微信中打开');
+      }
+    })
+  </script>
+</body>
+</html>
