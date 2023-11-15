@@ -151,21 +151,20 @@
           header.style.display = 'flex'
       }
 
-    a.addEventListener('click', e => {
-      e.preventDefault()
-      // 获取 User Agent
-      var userAgent = navigator.userAgent.toLowerCase();
+    // a.addEventListener('click', e => {
+    //   // 获取 User Agent
+    //   var userAgent = navigator.userAgent.toLowerCase();
       
-      // 判断是否在微信中打开
-      if (userAgent.indexOf('micromessenger') !== -1) {
-          console.log('当前页面在微信中打开');
-          tooltip.style.display = 'flex'
-          show.style.display = 'none'
-      } else {
-        location.replace('https://ygk.deman.cn:13080/deman-ygk.apk')
-          console.log('当前页面不在微信中打开');
-      }
-    })
+    //   // 判断是否在微信中打开
+    //   if (userAgent.indexOf('micromessenger') !== -1) {
+    //       console.log('当前页面在微信中打开');
+    //       tooltip.style.display = 'flex'
+    //       show.style.display = 'none'
+    //   } else {
+    //     location.replace('https://ygk.deman.cn:13080/deman-ygk.apk')
+    //       console.log('当前页面不在微信中打开');
+    //   }
+    // })
   </script>
 </body>
 </html>
